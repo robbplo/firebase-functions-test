@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- This demo uses Vue.js 2.0 to create a simple UI -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- Basic styles from water.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.min.css">
+
+
+<!--    &lt;!&ndash; update the version number as needed &ndash;&gt;-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-app.js"></script>-->
+<!--    &lt;!&ndash; include only the Firebase features as you need &ndash;&gt;-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-auth.js"></script>-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-database.js"></script>-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-firestore.js"></script>-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-functions.js"></script>-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-messaging.js"></script>-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-storage.js"></script>-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-analytics.js"></script>-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-remote-config.js"></script>-->
+<!--    <script defer src="/__/firebase/8.2.9/firebase-performance.js"></script>-->
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-functions.js"></script>
+
+
+    <!--
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+<!--    <script defer src="/__/firebase/init.js?useEmulator=true"></script>-->
+
+  </head>
+  <body>
+    <div id="app">
+      <div v-if="!signedIn">
+        <h4>Sign In</h4>
+        <form style="padding-top: 12px; padding-bottom: 12px;">
+          <input v-model="emailInput" type="email" placeholder="Email" autofocus></textarea>
+          <input v-model="passwordInput" type="password" placeholder="Password"></textarea>
+          <button v-on:click.prevent="signIn()">Sign In</button>
+          <button v-on:click.prevent="signUp()">Sign Up</button>
+        </form>
+      </div>
+
+      <div v-else>
+        <h4>Queue</h4>
+        <ul>
+          <li
+            v-for="(item, index) in queue"
+            v-bind:key="index">
+            {{ item.uid }}
+          </li>
+        </ul>
+
+        <form style="padding-top: 12px; padding-bottom: 12px;">
+<!--          <input v-model="msgInput" type="text" placeholder="Add a message..." autofocus></textarea>-->
+          <button v-on:click.prevent="enterQueue()">Enter queue</button>
+        </form>
+      </div>
+
+
+      <a href="http://localhost:4000/" style="font-size: 9pt;" target="_blank">View data in the Emulator UI</a>
+    </div>
+    <script src="/index.js"></script>
+    </script>
+  </body>
+</html>
