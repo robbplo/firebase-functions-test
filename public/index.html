@@ -28,6 +28,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-functions.js"></script>
 
 
@@ -51,18 +52,23 @@
       </div>
 
       <div v-else>
-        <h4>Queue</h4>
+        <h4>Online users</h4>
         <ul>
           <li
-            v-for="(item, index) in queue"
+            v-for="(item, index) in onlineUsers"
             v-bind:key="index">
             {{ item.uid }}
           </li>
         </ul>
 
+        <h4>Match response</h4>
+        <pre>{{ matchResponse }}</pre>
+
+        <h4>Conversation</h4>
+        <pre>{{ conversation }}</pre>
+
         <form style="padding-top: 12px; padding-bottom: 12px;">
-<!--          <input v-model="msgInput" type="text" placeholder="Add a message..." autofocus></textarea>-->
-          <button v-on:click.prevent="enterQueue()">Enter queue</button>
+          <button v-on:click.prevent="match">Attempt match</button>
         </form>
       </div>
 

@@ -1,4 +1,7 @@
 {
+  "database": {
+    "rules": "database.rules.json"
+  },
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
@@ -14,12 +17,6 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   },
   "emulators": {
@@ -31,6 +28,9 @@
     },
     "firestore": {
       "port": 8080
+    },
+    "database": {
+      "port": 9098
     },
     "hosting": {
       "port": 5000
